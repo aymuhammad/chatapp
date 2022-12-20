@@ -305,3 +305,21 @@ SPECTACULAR_SETTINGS = {
 }
 # Your stuff...
 # ------------------------------------------------------------------------------
+
+# redis config
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG":{
+            "hosts": [(env("REDIS_HOST"), env.int("REDIS_PORT"))],
+        }
+    }
+}
+
+# registering chatapp
+
+from django.apps import AppConfig
+
+class ChatsConfig(AppConfig):
+    DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+    name = "ontime.chats"
