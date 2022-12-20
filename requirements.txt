@@ -5,3 +5,4 @@ virtualenv venv
 channels
 channels_redis
 cookiecutter gh:cookiecutter/cookiecutter-django
+djangorestframework
