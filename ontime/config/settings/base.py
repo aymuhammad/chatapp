@@ -324,10 +324,10 @@ class ChatsConfig(AppConfig):
     DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
     name = "ontime.chats"
 
-# STATIC_ROOT = BASE_DIR / "staticfiles"
-
 REDIS = { 
     'host': 'localhost',
     'port': 6379,
     'db': 0,
 }
+
+ASGI_APPLICATION = "config.asgi.application"
