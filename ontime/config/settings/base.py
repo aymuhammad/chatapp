@@ -42,7 +42,7 @@ LOCALE_PATHS = [str(ROOT_DIR / "locale")]
 DATABASES = {
     "default": env.db(
         "DATABASE_URL",
-        default="postgres://localhost/ontime",
+        default="postgres://localhost:5432?user=password=auwal",
     ),
 }
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
@@ -323,3 +323,5 @@ from django.apps import AppConfig
 class ChatsConfig(AppConfig):
     DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
     name = "ontime.chats"
+
+# STATIC_ROOT = BASE_DIR / "staticfiles"
