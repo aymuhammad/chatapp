@@ -30,6 +30,9 @@ django_application = get_asgi_application()
 # Import websocket application here, so apps from django_application are loaded first
 from config.websocket import websocket_application  # noqa isort:skip
 
+# Import websocket application here, so apps from django_application are loaded first
+from config import routing  #noqa isort:skip
+
 # The application object is being configured as a router based on the protocol being used. The HTTP protocol is handled by get_asgi_application() and the websocket protocol is handled by a URL router (this part hasn't been coded yet but we will do that soon).
 from channels.routing import ProtocolTypeRouter, URLRouter
 
