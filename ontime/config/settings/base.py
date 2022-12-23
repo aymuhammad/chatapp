@@ -325,3 +325,9 @@ class ChatsConfig(AppConfig):
     name = "ontime.chats"
 
 # STATIC_ROOT = BASE_DIR / "staticfiles"
+
+REDIS = { 
+    'host': 'localhost',
+    'port': 6379,
+    'db': 0,
+}
