@@ -1,3 +1,40 @@
-export default function App() {
-  return <h1 className="text-3xl font-bold underline">Hello world!</h1>;
+// we will now test the connection to the websocket consumer
+import React from "react";
+import useWebSocket, { ReadyState } from "react-use-websocket";
+
+export default function App(){
+  const { readyState } = useWebSocket("ws://127.0.0.1:8000/", {
+    onOpen: () => {
+      console.log("Connected!");
+    },
+    onClose: () => {
+      console.log("Disconnected!");
+    }
+  });
+
+  const connectionStatus = {
+    [ReadyState.CONNECTING]: "Connecting",
+    [ReadyState.OPEN]: "Open",
+    [ReadyState.CLOSING]: "Closing",
+    [ReadyState.UNINSTANTIATED]: "Uninstantiated",
+  };
+
+  return(
+    <div>
+      <span> The WebSocket is currently {readyState} </span>
+    </div>
+  );
 }
+
+const { readyState } = useWebSocket("ws://127.0.0.1:8000/", {
+  onOpen: () => {
+    console.log("Connected!");
+  },
+  onClose: () => {
+    console.log("Disconnected!");
+  },
+  // New onMessage handler
+  onMessage: (e) => {
+    console.log(e);
+  }
+});
