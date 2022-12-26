@@ -19,6 +19,8 @@ from pathlib import Path
 
 from django.core.wsgi import get_wsgi_application
 
+from whitenoise import WhiteNoise
+
 # This allows easy placement of apps within the interior
 # ontime directory.
 ROOT_DIR = Path(__file__).resolve(strict=True).parent.parent
